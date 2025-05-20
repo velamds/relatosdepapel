@@ -1,0 +1,334 @@
+@import "tailwindcss";
+
+
+.landing{
+    @apply bg-white text-purple-800;
+}
+
+.landing__content{
+    @apply h-screen flex items-center justify-center text-center px-4;
+}
+
+.content__title{
+    @apply text-5xl md:text-7xl font-bold mb-4;
+}
+
+.content__subtitle{
+    @apply text-2xl md:text-3xl text-purple-400;
+}
+
+.header{
+    @apply flex w-full mt-2 mb-2 shadow-md bg-white z-10 gap-x-4;
+}
+
+.header__icon{
+    height: 80px;
+    @apply w-1/4 bg-contain bg-no-repeat bg-[url('assets/relatos-de-papel-logo.png')];
+}
+
+.header__buscador{
+    @apply w-1/2 relative m-3;
+}
+
+.buscador__input{
+    @apply block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
+.buscador__icon{
+    @apply absolute inset-y-5 end-4 items-center ps-3 pointer-events-none;
+}
+
+.icon__svg{
+    @apply w-4 h-4 text-gray-500 dark:text-gray-400;
+}
+
+.header__carticon{
+    @apply w-16 h-10 bg-no-repeat bg-contain mt-5 cursor-pointer relative inline-block bg-[url('assets/cart-icon.svg')];
+}
+
+.header__favoriteicon{
+    @apply w-16 h-8 bg-no-repeat bg-contain mt-6 cursor-pointer relative bg-[url('assets/heart-icon.svg')];
+}
+.header__favoriteicon:hover{
+    transition: background-image 0.5s;
+    @apply w-16 h-8 bg-no-repeat bg-contain mt-6 cursor-pointer bg-[url('assets/heart-icon-hover.svg')];
+}
+.header__usericon{
+
+    @apply w-16 h-8 bg-no-repeat bg-contain mt-6 cursor-pointer relative bg-[url('assets/user-icon.svg')];
+}
+.header__languageicon{
+    @apply w-16 h-12 text-purple-900 transition-transform duration-300 cursor-pointer mt-5.5 relative;
+}
+
+.header__carticon .carticon__tooltiptext {
+    @apply w-24 invisible text-center rounded-md p-2 mt-2 text-white absolute top-full z-1 left-[-18px] bg-[#86688c];
+}
+
+.header__carticon:hover .carticon__tooltiptext {
+    @apply visible;
+}
+
+.header__usericon .usericon__tooltiptext {
+    @apply w-24 invisible text-center rounded-md p-2 text-white mt-2 absolute top-full z-1 left-[-18px] bg-[#86688c];
+}
+
+.header__usericon:hover .usericon__tooltiptext{
+    @apply visible;
+}
+
+.header__favoriteicon .favoriteicon__tooltiptext {
+    @apply w-24 invisible text-center rounded-md p-2 text-white mt-2 absolute top-full z-1 left-[-18px] bg-[#86688c];
+}
+
+.header__favoriteicon:hover .favoriteicon__tooltiptext {
+    @apply visible;
+}
+
+.header__languageicon .languageicon__tooltiptext {
+    @apply w-24 invisible text-center rounded-md p-2 text-white absolute top-full z-1 left-[-18px] bg-[#86688c];
+}
+
+.header__languageicon:hover .languageicon__tooltiptext {
+    @apply visible;
+}
+
+.navbar{
+    @apply flex justify-center items-center gap-x-60 shadow-md rounded-md py-1 lg:px-8 lg:py-3 bg-white text-purple-900 font-medium text-sm;
+}
+
+.navbar__item{
+    @apply hover:text-purple-600 transition-colors duration-200 cursor-pointer;
+}
+
+.navbar__item--active{
+    @apply hover:text-purple-600 transition-colors duration-200 cursor-pointer text-purple-400;
+}
+
+.content{
+    @apply flex w-full mt-12 shadow-md pb-10 pl-10 pr-10 flex-col items-center;
+}
+
+.content__list{
+    @apply flex gap-x-20 gap-y-10 flex-wrap;
+}
+
+.list__book{
+    @apply w-40 flex flex-col ml-10;
+}
+
+.book__title{
+    @apply font-bold;
+}
+
+.book__image{
+    @apply h-50 w-40;
+}
+
+.footer{
+    @apply flex w-full mt-4;
+}
+
+.footer__logo{
+    height: 80px;
+    @apply w-1/3 mt-4 pl-10 ml-auto justify-center items-center;
+}
+
+.logo__img{
+    @apply w-1/2;
+}
+
+.footer__copyright{
+    @apply w-1/3 mt-7 text-center text-gray-500 justify-center items-center;
+}
+
+.footer__social_network_links{
+    @apply flex w-1/3 justify-center items-center;
+}
+
+.notfound{
+    @apply flex flex-col items-center justify-center h-120 text-purple-900 text-center;
+}
+
+.notfound__title{
+    @apply text-6xl font-bold;
+}
+.notfound__subtitle{
+    @apply text-2xl mt-4;
+}
+
+.book__pricerow{
+    @apply flex;
+}
+
+.pricerow__price{
+    @apply flex justify-between w-full;
+}
+
+.pricerow__cart{
+    @apply text-2xl text-purple-900 cursor-pointer hover:text-purple-600 ;
+}
+
+.pricerow__tooltip{
+    @apply absolute bottom-full mb-2 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition transform bg-gray-800 text-white text-xs rounded px-2 py-1 whitespace-nowrap z-10;
+}
+
+.modal{
+    @apply fixed inset-0 bg-black/50 flex items-center justify-center z-50;
+}
+
+.modal__content{
+    @apply bg-white p-4 rounded-xl shadow-xl max-w-sm w-full text-center;
+}
+
+.modal__close{
+    @apply mt-4 text-white bg-purple-600 px-4 py-2 rounded hover:bg-purple-700;
+}
+
+.modal__title{
+    @apply text-xl font-semibold;
+}
+
+.modal__message{
+    @apply text-gray-600;
+}
+
+.bookdetail{
+    @apply flex justify-center mt-10;
+}
+
+.bookdetail__item{
+    @apply flex flex-col ml-4 gap-y-5;
+}
+
+.about{
+    @apply bg-gradient-to-br from-purple-200 via-purple-100 to-yellow-100 flex items-center justify-center h-100;
+}
+
+.about__content{
+    @apply text-center space-y-4 text-2xl font-semibold text-gray-800 bg-white/60 backdrop-blur-sm p-10 rounded-2xl shadow-xl;
+}
+
+.contact{
+    @apply flex items-center justify-center h-130;
+}
+
+.contact__form{
+    @apply bg-white p-8 rounded-2xl shadow-lg w-full max-w-md space-y-2;
+}
+
+.form__title{
+    @apply text-2xl font-bold text-center text-gray-800;
+}
+
+.form__label{
+    @apply block text-sm font-medium text-gray-700;
+}
+
+.form__input{
+    @apply mt-1 w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500
+}
+
+.form__button{
+    @apply w-full bg-purple-900 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg transition duration-200
+}
+
+.checkoutpage{
+    @apply p-8 space-y-6 bg-gray-50 h-130;
+}
+
+.checkoutpage__title{
+    @apply text-2xl font-bold;
+}
+
+.checkoutpage__wrapper{
+    @apply flex flex-wrap gap-6;
+}
+
+.checkoutidentity{
+    @apply bg-white p-4 rounded shadow w-full md:w-[300px];
+}
+
+.checkoutidentity__title{
+    @apply font-bold mb-2;
+}
+
+.checkoutidentity__form{
+    @apply space-y-2;
+}
+
+.checkout__input{
+    @apply w-full border p-2 rounded
+}
+
+.checkoutaddress{
+    @apply bg-white p-4 rounded shadow grow;
+}
+
+.checkoutaddress__grid{
+    @apply grid gap-4;
+}
+
+.checkoutaddress__title{
+    @apply font-bold mb-2;
+}
+
+.checkoutpayment{
+    @apply bg-white p-4 rounded shadow grow;
+}
+
+.checkoutpayment__title{
+    @apply font-bold mb-2;
+}
+
+.checkoutpayment__form{
+    @apply space-y-2 mt-2;
+}
+
+.checkoutpayment__button{
+    @apply w-full mt-4 bg-purple-900 text-white px-4 py-2 rounded hover:bg-purple-600;
+}
+
+.checkoutpayment__expdate{
+    @apply grid grid-cols-2 gap-2;
+}
+
+.expdate__input{
+    @apply border p-2 rounded;
+}
+
+.checkoutpayment__type{
+    @apply flex items-center gap-4 mt-2;
+}
+
+.type__label{
+    @apply flex items-center gap-1;
+}
+
+.checkoutitems{
+    @apply bg-white p-4 rounded shadow w-full md:w-[250px];
+}
+
+.checkoutitems__title{
+    @apply font-bold flex items-center gap-2 mb-4;
+}
+
+.checkoutitems__list{
+    @apply space-y-2;
+}
+
+.item__li{
+    @apply flex gap-2 items-center justify-between;
+}
+
+.item__title{
+    @apply flex gap-2;
+}
+
+.checkoutitems__total{
+    @apply font-semibold text-lg mb-4 justify-end flex;
+}
+
+.total__value{
+    @apply text-purple-600 ml-3;
+}
