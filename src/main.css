@@ -332,3 +332,67 @@
 .total__value{
     @apply text-purple-600 ml-3;
 }
+
+.cart{
+    @apply p-4;
+}
+
+.cart__title{
+    @apply text-xl font-bold mb-4 text-center;
+}
+
+.cart__empty{
+    @apply text-center;
+}
+
+.cart__table{
+    @apply space-y-2 mb-4;
+}
+
+.table__head{
+    @apply flex flex-row w-full gap-x-20 shadow-sm justify-center;
+}
+
+.head__title{
+    @apply flex-col w-50;
+}
+
+.table__row{
+    @apply flex flex-row w-full gap-x-20 shadow-sm justify-center;
+}
+
+.row__title{
+    @apply flex-col w-50 font-semibold;
+}
+
+.row__price{
+    @apply flex-col w-50;
+}
+
+.row__quantity{
+    @apply flex-col w-50 text-sm text-gray-600;
+}
+
+.row__totalitem{
+    @apply flex-col w-50 text-purple-600 font-bold;
+}
+
+.row__removebutton{
+    @apply text-red-600 hover:text-red-800 ml-4;
+}
+
+.cart__total{
+    @apply flex justify-end mr-30 font-semibold text-lg mb-4;
+}
+
+.cart__buttons{
+    @apply flex justify-end mr-30;
+}
+
+.buttons__clear{
+    @apply bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 mr-4;
+}
+
+.buttons__checkout{
+    @apply bg-purple-900 text-white px-4 py-2 rounded hover:bg-purple-600;
+}
