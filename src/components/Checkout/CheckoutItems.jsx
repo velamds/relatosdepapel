@@ -4,7 +4,7 @@ const CheckoutItems = () => {
     const { cart } = useCart();
   
     const total = cart.reduce(
-      (sum, item) => sum + item.precio * item.cantidad,
+      (sum, item) => sum + item.price * item.quantity,
       0
     );
 
@@ -15,9 +15,9 @@ const CheckoutItems = () => {
             {cart.map((item) => (
               <li key={item} className="item__li">
                 <div className="item__title">
-                  <span>{item.titulo}({item.cantidad})</span>
+                  <span>{item.title}({item.quantity})</span>
                 </div>
-                <span>$ {(item.precio * item.cantidad).toFixed(2)}</span>
+                <span>$ {(item.price * item.quantity).toFixed(2)}</span>
               </li>
             ))}
             <div className="checkoutitems__total">

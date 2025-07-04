@@ -6,7 +6,7 @@ const Cart = () => {
   const { cart, clearCart, removeFromCart } = useCart();
 
   const total = cart.reduce(
-    (sum, item) => sum + item.precio * item.cantidad,
+    (sum, item) => sum + item.price * item.quantity,
     0
   );
 
@@ -27,11 +27,11 @@ const Cart = () => {
             </div>
             {cart.map((item, index) => (
               <div key={index} className="table__row">
-                <p className="row__title">{item.titulo}</p>
-                <p className="row__price">${item.precio.toFixed(2)}</p>
-                <p className="row__quantity">{item.cantidad}</p>
+                <p className="row__title">{item.title}</p>
+                <p className="row__price">${item.price.toFixed(2)}</p>
+                <p className="row__quantity">{item.quantity}</p>
                 <p className="row__totalitem">
-                   ${(item.precio * item.cantidad).toFixed(2)}
+                   ${(item.price * item.quantity).toFixed(2)}
                    <button
                       className="row__removebutton"
                       onClick={() => removeFromCart(item.id)}>

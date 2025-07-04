@@ -1,11 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios'
+import config from '../../config.js'
+import useCart from '../../hooks/cartHook';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutPayment = () => {
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  alert('Formulario Enviado...')
-}
+  const { cart } = useCart();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = {
+      userId: 1, // Assumimos este user id
+      items: cart.map((item) => ({
+        bookId: item.id,
+        quantity: item.quantity,
+        price: item.price,
+      })),
+    };
+    try {
+      const orderResponse = await axios.post(`${config.API_PAYMENT_PATH}/orders`, form);
+      alert('Orden creada correctamente');
+
+      await axios.post(`${config.API_PAYMENT_PATH}/${orderResponse.data.id}/pay`);
+      alert('Pago procesado correctamente');
+      
+      navigate('/');
+    } catch (error) {
+      alert('Error al procesar el pago');
+      console.error(error);
+    }
+  }
 
 return (
     <div className="checkoutpayment">

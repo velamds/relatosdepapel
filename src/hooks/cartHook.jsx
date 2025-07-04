@@ -31,11 +31,11 @@ export default function useCart() {
     if (existing) {
       updatedCart = currentCart.map((item) =>
         item.id === book.id
-          ? { ...item, cantidad: item.cantidad + 1 }
+          ? { ...item, quantity: item.quantity + 1 }
           : item
       );
     } else {
-      updatedCart = [...currentCart, { ...book, cantidad: 1 }];
+      updatedCart = [...currentCart, { ...book, quantity: 1 }];
     }
     setCart(updatedCart);
   }
