@@ -13,7 +13,7 @@ const Home = () => {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        axios.get(`${config.API_CATALOGUE_PATH}`)
+        axios.get(`${config.API_CATALOGUE_PATH}/books`)
             .then(response => setBooks(response.data))
             .catch(error => console.error('Error al obtener libros:', error));
     }, []);
@@ -24,20 +24,20 @@ const Home = () => {
             {
                 books.map((book, key) =>(
                     <li className="list__book" key={key}>
-                        <Link to={`/book/${book.id}`}>
-                            <img className="book__image" src={book.img_url} alt=""/>
-                            <p className="book__title">{book.titulo}</p>
-                            <p>{book.autor}</p>
+                        <Link to={`/books/${book.id}`}>
+                            <img className="book__image" src={book.image} alt=""/>
+                            <p className="book__title">{book.title}</p>
+                            <p>{book.author}</p>
                         </Link>
                         <div className="book__pricerow">
-                            <span className="pricerow__price">${book.precio}</span>
+                            <span className="pricerow__price">${book.price}</span>
                             <div className="relative group w-fit">
                                 <FaCartPlus     
                                     className="pricerow__cart" 
                                     onClick={(e) => {
                                             e.stopPropagation();
                                             addToCart(book);
-                                            setBookTitle(book.titulo);
+                                            setBookTitle(book.title);
                                             setShowModal(true);
                                         }
                                     }

@@ -1,21 +1,32 @@
 import books from '../data/books.json'
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import { FaCartPlus } from 'react-icons/fa'
 import useCart from "../hooks/cartHook"
 import Modal from './Modal'
+import config from '../config.js'
+import axios from 'axios'
 
 const BookDetail = ({id}) => {
-  const book = books.find((b) => b.id == id);
   const { addToCart } = useCart();
   const [showModal, setShowModal] = useState(false);
+  const [book, setBook] = useState(null);
+
+  useEffect(() => {
+    axios.get(`${config.API_BASE_URL}/${id}`)
+      .then(response => setBook(response.data))
+      .catch(error => console.error('Error al obtener el libro:', error));
+  }, [id]);
+
+  if (!book) return <div>Cargando...</div>;
+
   return (
     <div className="bookdetail">
-        <img src={book?.img_url} alt={book?.titulo} />
+        <img src={book?.image} alt={book?.title} />
         <div className="bookdetail__item">
-          <p>Titulo: <b>{book?.titulo}</b></p>
-          <p>Autor: <b>{book?.autor}</b></p>
+          <p>Titulo: <b>{book?.title}</b></p>
+          <p>Autor: <b>{book?.author}</b></p>
           <p>Descripción: <i>{book?.descripcion}</i></p>
-          <p>Precio: $ {book?.precio}</p>
+          <p>Precio: $ {book?.price}</p>
           <div className="relative group w-fit flex flex-row">
               Añadir al carrito
               <FaCartPlus     
@@ -32,7 +43,7 @@ const BookDetail = ({id}) => {
         </div>
         <Modal show={showModal} onClose={() => setShowModal(false)}>
           <h2 className="modal__title">¡Libro añadido!</h2>
-          <p className="modal__message">El libro <b>{book.titulo}</b> fue añadido al carrito</p>
+          <p className="modal__message">El libro <b>{book.title}</b> fue añadido al carrito</p>
         </Modal>
     </div>
   )
