@@ -1,14 +1,23 @@
-import books from '../data/books.json'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FaCartPlus } from 'react-icons/fa'
 import useCart from "../hooks/cartHook"
 import Modal from './Modal'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import config from '../config.js'
 
 const Home = () => {
     const { addToCart } = useCart();
     const [showModal, setShowModal] = useState(false);
     const [bookTitle, setBookTitle] = useState("");
+    const [books, setBooks] = useState([]);
+
+    useEffect(() => {
+        axios.get(`${config.API_CATALOGUE_PATH}`)
+            .then(response => setBooks(response.data))
+            .catch(error => console.error('Error al obtener libros:', error));
+    }, []);
+
     return (
         <div className="content">
             <ul className="content__list">
