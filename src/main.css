@@ -114,16 +114,47 @@
 }
 
 .list__book{
-    @apply w-40 flex flex-col ml-10;
+    /* Estilos eliminados o ajustados ya que Tailwind se usa directamente en el componente */
 }
 
 .book__title{
-    @apply font-bold;
+     /* Estilos eliminados o ajustados, Tailwind se usa en el componente */
 }
 
 .book__image{
-    @apply h-50 w-40;
+    /* Estilos eliminados o ajustados, Tailwind se usa en el componente */
 }
+
+/* Estilos para facetas y filtros */
+.facet-filter {
+    @apply mb-6;
+}
+
+.facet-title {
+    @apply text-lg font-semibold text-purple-600 mb-3 border-b border-purple-200 pb-2;
+}
+
+.facet-options {
+    @apply space-y-2;
+}
+
+.facet-option label {
+    @apply flex items-center text-gray-700 hover:text-purple-600 transition-colors cursor-pointer;
+}
+
+.facet-option input[type="checkbox"] {
+    @apply mr-2 h-4 w-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500;
+}
+
+/* Ajustes generales para la página Home */
+.container {
+    /* max-width y otros estilos de contenedor si son necesarios globalmente */
+}
+
+.load-more-button {
+    /* Estilos ya aplicados con Tailwind en el JSX, se puede mantener para overrides o quitar si no es necesario */
+}
+
 
 .footer{
     @apply flex w-full mt-4;
